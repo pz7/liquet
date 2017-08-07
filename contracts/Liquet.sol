@@ -67,6 +67,6 @@ contract Liquet is StandardToken {
     }
 
     function() {
-        throw;
+        revert();
     }
 }
