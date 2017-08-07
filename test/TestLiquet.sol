@@ -4,7 +4,7 @@ import "truffle/Assert.sol";
 import "truffle/DeployedAddresses.sol";
 import "../contracts/Liquet.sol";
 
-contract TestMetacoin {
+contract TestLiquet {
 
   function testInitialBalanceUsingDeployedContract() {
     Liquet liquet = Liquet(DeployedAddresses.Liquet());
@@ -14,7 +14,7 @@ contract TestMetacoin {
     Assert.equal(liquet.getBalance(tx.origin), expected, "Owner should have 100,000,000 MetaCoin initially");
   }
 
-  function testInitialBalanceWithNewMetaCoin() {
+  function testInitialBalanceWithNewLiquet() {
     Liquet liquet = new Liquet();
 
     uint expected = 100000000;
