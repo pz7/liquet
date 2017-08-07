@@ -7,7 +7,7 @@ import "../contracts/Liquet.sol";
 contract TestMetacoin {
 
   function testInitialBalanceUsingDeployedContract() {
-    Litquet liquet = MetaCoin(DeployedAddresses.Liquet());
+    Liquet liquet = Liquet(DeployedAddresses.Liquet());
 
     uint expected = 100000000;
 
