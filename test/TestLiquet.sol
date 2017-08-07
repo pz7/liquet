@@ -9,7 +9,7 @@ contract TestLiquet {
   function testInitialBalanceUsingDeployedContract() {
     Liquet liquet = Liquet(DeployedAddresses.Liquet());
 
-    uint expected = liquet.totalSupply;
+    uint expected = liquet.totalSupply();
 
     Assert.equal(liquet.balanceOf(msg.sender), expected, "Owner should have 10,000,000 Liquets initially");
   }
