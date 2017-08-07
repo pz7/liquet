@@ -19,8 +19,9 @@ contract TestLiquet {
 
     uint value = 10;
 
-    liquet.transfer(0x1, value);
+    bool success = liquet.transfer(0x1, value);
 
+    Assert.isTrue(success, "Trasfer should be successful");
     Assert.equal(liquet.balanceOf(0x1), value, "Address should have 10 Liquets after transfer");
   }
 }
