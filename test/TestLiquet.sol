@@ -13,13 +13,4 @@ contract TestLiquet {
 
     Assert.equal(liquet.balanceOf(msg.sender), expected, "Owner should have 10,000,000 Liquets initially");
   }
-
-  function testInitialBalanceWithNewLiquet() {
-    Liquet liquet = new Liquet();
-
-    uint expected = 10000000000000000000000000;
-
-    Assert.equal(liquet.balanceOf(msg.sender), expected, "Owner should have 10,000,000 Liquets initially");
-  }
-
 }
