@@ -1,7 +1,7 @@
 pragma solidity ^0.4.13;
 
 contract Token {
-    uint256 public totalSupply;
+    uint public totalSupply;
     function balanceOf(address _owner) constant returns (uint balance);
     function transfer(address _to, uint _value) returns (bool success);
     function transferFrom(address _from, address _to, uint _value) returns (bool success);
@@ -40,7 +40,7 @@ contract StandardToken is Token {
       }
     }
 
-    function balanceOf(address _owner) constant returns (uint256 balance) {
+    function balanceOf(address _owner) constant returns (uint balance) {
         return balances[_owner];
     }
 
