@@ -11,7 +11,7 @@ contract TestLiquet {
 
     uint expected = 10000000000000000000000000;
 
-    Assert.equal(liquet.balanceOf(tx.origin), expected, "Owner should have 100,000,000 MetaCoin initially");
+    Assert.equal(liquet.balanceOf(tx.origin), expected, "Owner should have 10,000,000 Liquets initially");
   }
 
   function testInitialBalanceWithNewLiquet() {
@@ -19,7 +19,7 @@ contract TestLiquet {
 
     uint expected = 10000000000000000000000000;
 
-    Assert.equal(liquet.balanceOf(tx.origin), expected, "Owner should have 100,000,000 MetaCoin initially");
+    Assert.equal(liquet.balanceOf(tx.origin), expected, "Owner should have 10,000,000 Liquets initially");
   }
 
 }
