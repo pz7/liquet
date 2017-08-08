@@ -71,7 +71,7 @@ contract('Liquet', function(accounts) {
       return liquet.balanceOf.call(account_three);
     }).then(function(balance) {
       account_three_starting_balance = balance.toNumber();
-      liquet.approve(account_two, amount, {from: account_one};
+      liquet.approve(account_two, amount, {from: account_one});
       return liquet.transferFrom(account_one, account_three, amount, {from: account_two});
     }).then(function() {
       return liquet.balanceOf.call(account_one);
