@@ -43,5 +43,50 @@ contract('Liquet', function(accounts) {
       assert.equal(account_one_ending_balance, account_one_starting_balance - amount, "Amount wasn't correctly taken from the sender");
       assert.equal(account_two_ending_balance, account_two_starting_balance + amount, "Amount wasn't correctly sent to the receiver");
     });
+  it("should transfer token on other behalf correctly", function() {
+    var liquet;
+
+    // Get initial balances of first and second account.
+    var account_one = accounts[0];
+    var account_two = accounts[1];
+    var account_three = accounts[1];
+
+    var account_one_starting_balance;
+    var account_two_starting_balance;
+    var account_three_starting_balance;
+    var account_one_ending_balance;
+    var account_two_ending_balance;
+    var account_three_ending_balance;
+
+    var amount = 10;
+
+    return Liquet.deployed().then(function(instance) {
+      liquet = instance;
+      return liquet.balanceOf.call(account_one);
+    }).then(function(balance) {
+      account_one_starting_balance = balance.toNumber();
+      return liquet.balanceOf.call(account_two);
+    }).then(function(balance) {
+      account_two_starting_balance = balance.toNumber();
+      return liquet.balanceOf.call(account_three);
+    }).then(function(balance) {
+      account_three_starting_balance = balance.toNumber();
+      liquet.approve(account_two, amount, {from: account_one};
+      return liquet.transferFrom(account_one, account_three, amount, {from: account_two});
+    }).then(function() {
+      return liquet.balanceOf.call(account_one);
+    }).then(function(balance) {
+      account_one_ending_balance = balance.toNumber();
+      return liquet.balanceOf.call(account_two);
+    }).then(function(balance) {
+      account_two_ending_balance = balance.toNumber();
+      return liquet.balanceOf.call(account_three);
+    }).then(function(balance) {
+      account_three_ending_balance = balance.toNumber();
+
+      assert.equal(account_one_ending_balance, account_one_starting_balance - amount, "Amount wasn't correctly taken from the sender");
+      assert.equal(account_two_ending_balance, account_two_starting_balance, "Amount wasn't correctly untouched by the sent to the receiver");
+      assert.equal(account_two_ending_balance, account_two_starting_balance + amount, "Amount wasn't correctly sent to the receiver");
+    });
   });
 });
