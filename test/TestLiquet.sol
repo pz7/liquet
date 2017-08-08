@@ -17,7 +17,7 @@ contract TestLiquet {
   function testNameUsingDeployedContract() {
     Liquet liquet = Liquet(DeployedAddresses.Liquet());
 
-    string name = liquet.name();
+    string name = string(liquet.name());
 
     Assert.equal(name, "Liquet", "The name should be Liquet");
   }
