@@ -1,5 +1,8 @@
 pragma solidity ^0.4.13;
 
+import 'zeppelin-solidity/contracts/token/StandardToken.sol';
+import 'zeppelin-solidity/contracts/ownership/Claimable.sol';   
+
 contract Token {
     uint public totalSupply;
     function balanceOf(address _owner) constant returns (uint balance);
