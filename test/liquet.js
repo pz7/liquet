@@ -31,7 +31,7 @@ contract('Liquet', function(accounts) {
       return liquet.balanceOf.call(account_two);
     }).then(function(balance) {
       account_two_starting_balance = balance.toNumber();
-      return liquet.sendCoin(account_two, amount, {from: account_one});
+      return liquet.transfer(account_two, amount, {from: account_one});
     }).then(function() {
       return liquet.balanceOf.call(account_one);
     }).then(function(balance) {
