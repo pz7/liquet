@@ -6,7 +6,7 @@ contract('Liquet', function(accounts) {
     return Liquet.deployed().then(function(instance) {
       return instance.balanceOf.call(accounts[0]);
     }).then(function(balance) {
-      assert.equal(balance.valueOf(), 100000000, "100000000 wasn't in the first account");
+      assert.equal(balance.valueOf(), 1e+25, "100000000 wasn't in the first account");
     });
   });
   it("should send coin correctly", function() {
