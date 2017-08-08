@@ -9,7 +9,7 @@ contract('Liquet', function(accounts) {
       assert.equal(balance.valueOf(), 1e+25, "100000000 wasn't in the first account");
     });
   });
-  it("should send coin correctly", function() {
+  it("should transfer token correctly", function() {
     var liquet;
 
     // Get initial balances of first and second account.
