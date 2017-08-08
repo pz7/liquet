@@ -13,4 +13,10 @@ contract TestLiquet {
 
     Assert.equal(liquet.balanceOf(msg.sender), expected, "Owner should have 10,000,000 Liquets initially");
   }
+
+  function testNameUsingDeployedContract() {
+    Liquet liquet = Liquet(DeployedAddresses.Liquet());
+
+    Assert.equal(liquet.getName(), "Liquet", "The name should be Liquet");
+  }
 }
