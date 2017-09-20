@@ -6,7 +6,7 @@ contract('Liquet', function(accounts) {
     return Liquet.deployed().then(function(instance) {
       return instance.balanceOf.call(accounts[0]);
     }).then(function(balance) {
-      assert.equal(balance.valueOf(), 1e+25, "100000000 wasn't in the first account");
+      assert.equal(balance.valueOf(), 1e+26, "100 million wasn't in the first account");
     });
   });
   it("should transfer token correctly", function() {
@@ -43,7 +43,7 @@ contract('Liquet', function(accounts) {
       assert.equal(account_one_ending_balance, account_one_starting_balance - amount, "Amount wasn't correctly taken from the sender");
       assert.equal(account_two_ending_balance, account_two_starting_balance + amount, "Amount wasn't correctly sent to the receiver");
     });
-  });    
+  });
   it("should transfer token on other behalf correctly", function() {
     var liquet;
 
