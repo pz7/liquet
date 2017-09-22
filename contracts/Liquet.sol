@@ -1,7 +1,7 @@
 pragma solidity ^0.4.15;
 
-import '../zeppelin-solidity/contracts/token/StandardToken.sol';
-import '../zeppelin-solidity/contracts/ownership/Claimable.sol';
+import 'zeppelin-solidity/contracts/token/StandardToken.sol';
+import 'zeppelin-solidity/contracts/ownership/Claimable.sol';
 
 contract Liquet is Claimable, StandardToken {
     string public constant name = "Liquet";
